@@ -47,5 +47,14 @@ class DriveController extends Controller
         }
     }
 
+    function uploadFile(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+            return view('upload');
+        } else {
+            $this->createFile($request->file('file'));
+        }
+    }
+
     
 }
