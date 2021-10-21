@@ -82,5 +82,14 @@ class DriveController extends Controller
         dd($file->id);
     }
 
+    function deleteFileOrFolder($id)
+    {
+        try {
+            $this->drive->files->delete($id);
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     
 }
