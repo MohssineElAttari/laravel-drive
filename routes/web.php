@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login/google', 'Auth\LoginController@redirectToGoogleProvider');
+Route::get('/login/google', [LoginController::class, 'redirectToGoogleProvider']);
 
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderGoogleCallback');
+Route::get('login/google/callback', [LoginController::class, 'handleProviderGoogleCallback']);
