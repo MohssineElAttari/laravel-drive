@@ -56,5 +56,10 @@ class DriveController extends Controller
         }
     }
 
+    function createStorageFile($storage_path)
+    {
+        $this->createFile($storage_path);
+    }
+
     
 }
