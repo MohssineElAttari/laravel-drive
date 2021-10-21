@@ -91,5 +91,15 @@ class DriveController extends Controller
         }
     }
 
-    
+    function createFolder($folder_name)
+    {
+        $folder_meta = new Google_Service_Drive_DriveFile(array(
+            'name' => $folder_name,
+            'mimeType' => 'application/vnd.google-apps.folder'
+        ));
+        $folder = $this->drive->files->create($folder_meta, array(
+            'fields' => 'id'
+        ));
+        return $folder->id;
+    }
 }
