@@ -20,5 +20,10 @@ class DriveController extends Controller
         });
     }
 
-    
+    public function getDrive()
+    {
+        $this->ListFolders('root');
+    }
+
+   
 }
