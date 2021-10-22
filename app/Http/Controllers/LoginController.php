@@ -11,7 +11,10 @@ class LoginController extends Controller
 {
     public function redirectToGoogleProvider()
     {
-        $parameters = ['access_type' => 'offline'];
+        $parameters = [
+            'access_type' => 'offline',
+            'approval_prompt' => 'force'
+        ];
         return Socialite::driver('google')->scopes(["https://www.googleapis.com/auth/drive"])->with($parameters)->redirect();
     }
 
